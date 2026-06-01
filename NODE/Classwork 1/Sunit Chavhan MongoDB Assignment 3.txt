@@ -1,0 +1,23 @@
+use Library_DB_1
+
+db.createCollection("books")
+
+db.books.insertOne({title:"AB",author:"N",genre:"Thrill",published_year:2016,available_copies:2})
+db.books.insertOne({title:"OP",author:"S",genre:"Comedy",published_year:2014,available_copies:3})
+db.books.insertOne({title:"ST",author:"L",genre:"Comedy",published_year:2018,available_copies:1})
+db.books.insertOne({title:"MP",author:"Q",genre:"Romantic",published_year:2020,available_copies:0})
+db.books.insertOne({title:"KL",author:"B",genre:"Romantic",published_year:2010,available_copies:10})
+
+db.books.find()
+
+db.books.find({published_year:{$gte:2015}})
+
+db.books.find({author:"Q"})
+
+db.books.updateOne({title:"AB"},{$set:{available_copies:3}})
+
+db.books.updateMany({available_copies:{$gt:0}},{$inc:{available_copies:-1}})
+
+db.books.deleteOne({_id:ObjectId('6a1d0018e8e17f8630b356fa')})
+
+db.books.deleteMany({available_copies:0})
