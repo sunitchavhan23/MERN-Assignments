@@ -51,6 +51,37 @@
                 
             </div>
             
+            <hr class="my-5">
+
+            <h2 class="text-center mb-4">Products Cards</h2>
+
+            <div
+                class="row"
+            >
+                <% products.forEach(p => { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card h-100 shadow">
+
+                        <div class="card-body">
+                            <h5 class="card-title"><%= p.name %></h5>
+                            <p class="card-text">
+                                <strong>ID:</strong> <%= p.id %>
+                            </p>
+                            <p class="card-text">
+                                <strong>Price:</strong> ₹<%= p.price %>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                    
+                <% }) %>
+            </div>
+            
+
+
+            
         </main>
         <footer>
             <!-- place footer here -->
