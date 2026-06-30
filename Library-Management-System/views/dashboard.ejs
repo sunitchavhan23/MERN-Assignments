@@ -18,7 +18,7 @@
 
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="/">Libray Management System</a>
+                <a class="navbar-brand" href="/users/dashboard">Libray Management System</a>
                 <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -34,7 +34,17 @@
                             <a class="nav-link" href="/members">Members</a>
                         </li>
                     </ul>
-
+                    <form class="d-flex my-2 my-lg-0">
+                        <a
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                            href="/users/logout"
+                            role="button"
+                            >Logout</a
+                        >
+                        
+                    </form>
                 </div>
             </div>
         </nav>
@@ -46,21 +56,25 @@
         <div class="container mt-5">
             <div class="dashboard-hero">
                 <h2>Library Management Dashboard</h2>
-                <p>Welcome back! Here is a quick overview of your library operations.</p>
+                <p>Welcome <%= uname %></p>
             </div>
 
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="stat-card">
                         <h4>Total Books</h4>
-                        <h1><%= totalBooks %></h1>
+                        <h1>
+                            <%= totalBooks %>
+                        </h1>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="stat-card">
                         <h4>Total Members</h4>
-                        <h1><%= totalMembers %></h1>
+                        <h1>
+                            <%= totalMembers %>
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -70,7 +84,7 @@
     </main>
     <footer>
         <div class="container">
-            <p class="mb-0">© 2026 Library Management System · Organize your books and members beautifully.</p>
+            <p class="mb-0">© 2026 Library Management System ·</p>
         </div>
     </footer>
     <!-- Bootstrap JavaScript Bundle (includes Popper) -->

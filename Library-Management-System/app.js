@@ -1,5 +1,6 @@
 const express = require("express");
 const methodOverride = require("method-override");
+const session = require('express-session');
 const path = require("path");
 
 const { connectDB } = require("./db");
@@ -9,6 +10,7 @@ const memberModel = require("./Models/memberModel");
 
 const bookRoutes = require("./Routes/bookRoute");
 const memberRoutes = require("./Routes/memberRoute");
+const userRoutes = require("./Routes/userRoute");
 
 const app = express();
 connectDB();
@@ -20,25 +22,19 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", async (req, res) => {
-    try {
-        const totalBooks = await bookModel.countDocuments();
-        const totalMembers = await memberModel.countDocuments();
-
-        res.render("dashboard", {
-            totalBooks,
-            totalMembers
-        });
-    } catch (err) {
-        console.log(err);
-        res.send("Something went wrong");
-    }
+app.get("/", (req, resp) => {
+    resp.redirect("/users");
 });
-
+app.use(session({
+    secret: "test",
+    resave: false,
+    saveUninitialized: false
+}))
 app.use("/books", bookRoutes);
 app.use("/members", memberRoutes);
+app.use("/users", userRoutes)
 
-app.listen(3000,()=>{
+app.listen(3000, () => {
     console.log("running");
-    
+
 })
