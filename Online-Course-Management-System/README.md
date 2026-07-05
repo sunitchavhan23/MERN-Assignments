@@ -104,3 +104,14 @@ http://localhost:4000
 
 ### MongoDB User Data
 ![MongoDB User Data](public/Screenshots/mongodbUsers.png)
+
+### Github Repository Structure
+![Github Repository Structure](public/Screenshots/GithubRepo.png)
+
+
+
+## Repository Link
+
+```bash
+   https://github.com/sunitchavhan23/MERN-Assignments/tree/main/Online-Course-Management-System
+```
